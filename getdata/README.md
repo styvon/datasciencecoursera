@@ -21,6 +21,7 @@ The first part of the R codes downloads the data set, unzip it to working direct
 Two functions are created to facilitate the analysis process:
 - afterspace(): a function that extracts character strings after a space (" ")
 - myread(): a function (myread) that reads the contents in a directory (with the same structure as the "test" and "train" folder) seperately and returns a dataframe. The first 561 columns are measurement data extracted from "X_test.text"/"X_train.txt", the 562nd is activity label from "y_test.txt"/"y_train.txt", the 563rd is subject information from "subject_test.txt"/"subject_train.txt". 
+
 ### Objective 1: merge training and test data sets
 Test and training data sets are read using *myread()* function and bound together by row using *rbind*.
 ### Objective 4: label data set with descriptive variable names
