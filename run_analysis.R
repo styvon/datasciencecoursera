@@ -1,7 +1,6 @@
 
 ######################### RETRIEVE DATA #############################
 # download file
-setwd("./run_analysis")
 url <- "http://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 download.file(url, "./dataset.zip", quiet = T, method = "curl")
 
@@ -49,7 +48,7 @@ data <- rbind(train, test)
 header <- afterspace(readLines("./features.txt"))
 
 # remove parentheses in feature names
-header <- gsub("\\(\\)","",name)
+header <- gsub("\\(\\)","",header)
 
 # rename columns
 names(data)[1:561] <- header
@@ -57,7 +56,7 @@ names(data)[562:563] <- c("label","subject")
 
 
 ############### OBJECTIVE 2: EXTRACT MEAN & STD #####################
-data <- data[,grep("(.mean.[^Freq])|.std.|label|subject", names(data))]
+data <- data[,grep("(mean[^Freq])|mean$|std|label|subject", names(data))]
 
 
 ################# OBJECTIVE 3: NAME ACTIVITIES ######################
@@ -91,4 +90,5 @@ tidy <- separate(tidy, labsub, c("label","subject"), sep = "\\.")
 # change order of variables and data arrangement
 tidy <- tidy[,c(67:68,1:66)]
 tidy$subject <- as.numeric(tidy$subject)
-tidy <- arrange(tidy,label, subject)
+tidy$label <- as.factor(tidy$label)
+tidy <- arrange(tidy,label, subject) 
