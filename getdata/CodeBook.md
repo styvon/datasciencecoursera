@@ -1,25 +1,25 @@
 ## Features
 ### Signals
- -tBodyAcc-XYZ
- -tGravityAcc-XYZ
- -tBodyAccJerk-XYZ
- -tBodyGyro-XYZ
- -tBodyGyroJerk-XYZ
- -tBodyAccMag
- -tGravityAccMag
- -tBodyAccJerkMag
- -tBodyGyroMag
- -tBodyGyroJerkMag
- -fBodyAcc-XYZ
- -fBodyAccJerk-XYZ
- -fBodyGyro-XYZ
- -fBodyAccMag
- -fBodyAccJerkMag
- -fBodyGyroMag
- -fBodyGyroJerkMag
+ - tBodyAcc-XYZ
+ - tGravityAcc-XYZ
+ - tBodyAccJerk-XYZ
+ - tBodyGyro-XYZ
+ - tBodyGyroJerk-XYZ
+ - tBodyAccMag
+ - tGravityAccMag
+ - tBodyAccJerkMag
+ - tBodyGyroMag
+ - tBodyGyroJerkMag
+ - fBodyAcc-XYZ
+ - fBodyAccJerk-XYZ
+ - fBodyGyro-XYZ
+ - fBodyAccMag
+ - fBodyAccJerkMag
+ - fBodyGyroMag
+ - fBodyGyroJerkMag
 ### Estimations chosen
- -mean: Mean value
- -std: Standard deviation
+ - mean: Mean value
+ - std: Standard deviation
 ### Vatiable calculation
  For each activity label and each subject, the mean values of the above estimations of the signals are calculated.
 ## Variables in the tidy data frame
