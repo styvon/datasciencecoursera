@@ -17,9 +17,11 @@
 - fBodyAccJerkMag
 - fBodyGyroMag
 - fBodyGyroJerkMag
+
 ### Estimations chosen
 - mean: Mean value
 - std: Standard deviation
+
 ### Vatiable calculation
  For each activity label and each subject, the mean values of the above estimations of the signals are calculated.
 
