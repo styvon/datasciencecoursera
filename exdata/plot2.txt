@@ -1,0 +1,5 @@
+# plot 2: total PM2.5 emission for Baltimore City for each of the 
+# years 1999, 2002, 2005, and 2008
+emibal <- aggregate(Emissions ~ year, data = NEI[NEI$fips == "24510",], sum)
+plot(emibal, pch = 19, main = "Plot 2: Total Emission Over the Years (Baltimore City)")
+abline(lm(Emissions ~ year, emibal), col = "red")

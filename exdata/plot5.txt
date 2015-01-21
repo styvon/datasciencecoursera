@@ -1,0 +1,6 @@
+library(ggplot2)
+index <- SCC$SCC[grep("Mobile", SCC$EI.Sector)]
+emibmotor <- NEI[NEI$fips == "24510" & NEI$SCC %in% index,]
+aggregated <- aggregate(Emissions ~ year, data = emibmotor, sum) 
+g <- ggplot(aggregated, aes(year, Emissions))
+g + geom_point(size = 4) + geom_smooth(method = "lm")

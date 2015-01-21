@@ -1,0 +1,5 @@
+# plot 1: total PM2.5 emission from all sources for each of the 
+# years 1999, 2002, 2005, and 2008
+emi <- aggregate(Emissions ~ year, data = NEI, sum)
+plot(emi, type = "b", pch = 19, main = "Plot 1: Total Emission Over the Years")
+abline(lm(Emissions ~ year, emi), col = "red")

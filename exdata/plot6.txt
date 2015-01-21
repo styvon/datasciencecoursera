@@ -1,0 +1,9 @@
+library(ggplot2)
+index <- SCC$SCC[grep("Mobile", SCC$EI.Sector)]
+selected <- NEI[NEI$fips %in% c("24510","06037") & NEI$SCC %in% index,]
+selected$fips <- as.factor(selected2$fips)
+levels(selected$fips) <- c("Baltimore City", "Los Angeles")
+aggregated <- aggregate(Emissions ~ year + fips, data = selected, sum) 
+g <- ggplot(aggregated, aes(year, Emissions))
+g + geom_point(size = 4, aes(color = fips)) + 
+    geom_smooth(method = "lm", aes(color = fips))

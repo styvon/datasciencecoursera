@@ -1,0 +1,4 @@
+library(ggplot2)
+emisrc <- aggregate(Emissions ~ year + type, data = NEI[NEI$fips == "24510",],sum)
+g <- ggplot(emisrc, aes(year, Emissions))
+g + geom_point(aes(color = type), size = 4) + geom_smooth(aes(group = type, color = type), size = 1, method = "lm", se = F)

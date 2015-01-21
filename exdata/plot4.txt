@@ -1,0 +1,4 @@
+index <- SCC$SCC[grep("Coal", SCC$SCC.Level.Three)]
+emicoal <- aggregate(Emissions ~ year, data = NEI[NEI$SCC %in% index,], sum)
+g <- ggplot(emicoal, aes(year, Emissions))
+g + geom_point(size = 4) + geom_smooth(method = "lm") 
