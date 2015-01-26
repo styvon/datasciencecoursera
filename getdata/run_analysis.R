@@ -68,27 +68,36 @@ for (i in 1:6){
 }
 
 
+################# OBJECTIVE 5 (IMPROVED): TIDY DATA SET ############
+library(dplyr)
+tidy <-
+    group_by(label, subject) %>%
+    summarise_each(funs(mean))
+
+#####################################################################
 ################### OBJECTIVE 5: TIDY DATA SET ######################
 # merge the two variables "label" and "subject" into new variable "labsub"
-library(dplyr)
-data <- mutate(data, labsub = paste0(label,".",subject))
+#library(dplyr)
+#data <- mutate(data, labsub = paste0(label,".",subject))
 
 # split data set by "labsub"
-s <- split(data, data$labsub)
+#s <- split(data, data$labsub)
 
 # calculate the average of each measurement in the splitted data set
-mean <- sapply(s, function(x) {colMeans(x[1:(dim(x)[2]-3)])})
+#mean <- sapply(s, function(x) {colMeans(x[1:(dim(x)[2]-3)])})
 
 # transpose the new data set and change into data frame
-tidy <- data.frame(t(mean))
-tidy$labsub <- dimnames(mean)[[2]]
+#tidy <- data.frame(t(mean))
+#tidy$labsub <- dimnames(mean)[[2]]
 
 # separate the "labsub" variable back to "label" and "subject"
-library(tidyr)
-tidy <- separate(tidy, labsub, c("label","subject"), sep = "\\.")
+#library(tidyr)
+#tidy <- separate(tidy, labsub, c("label","subject"), sep = "\\.")
 
 # change order of variables and data arrangement
-tidy <- tidy[,c(67:68,1:66)]
-tidy$subject <- as.numeric(tidy$subject)
-tidy$label <- as.factor(tidy$label)
-tidy <- arrange(tidy,label, subject) 
+#tidy <- tidy[,c(67:68,1:66)]
+#tidy$subject <- as.numeric(tidy$subject)
+#tidy$label <- as.factor(tidy$label)
+#####################################################################
+
+tidy <- arrange(tidy,label, subject)
